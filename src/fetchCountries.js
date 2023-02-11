@@ -12,4 +12,3 @@ export function fetchCountries(name) {
             });
 
 }
-// fetchCountries().then(data => console.log(data))
