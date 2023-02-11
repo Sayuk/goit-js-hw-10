@@ -5,6 +5,8 @@ export function fetchCountries(name) {
     return fetchCountries(`${BASE_URL}${name}?${fields}`)
         .then(resp => {
             
+
+          
                 if (!resp.ok) {
                     throw new Error(resp.statusText);
                 }
