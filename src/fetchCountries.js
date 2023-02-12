@@ -1,4 +1,4 @@
-const BASE_URL = 'https://restcountries.com/v3.1/name/'
+const BASE_URL = 'https://restcountries.com/v3.1/name/{name}'
 const fields = 'fields=name,capital,population,flags,languages'
 export function fetchCountries(name) {
   
@@ -6,7 +6,7 @@ export function fetchCountries(name) {
         .then(resp => {
             
 
-          
+
                 if (!resp.ok) {
                     throw new Error(resp.statusText);
                 }
