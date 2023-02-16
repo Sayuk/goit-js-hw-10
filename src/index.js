@@ -11,7 +11,7 @@ const countryInput = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
-countryInput.addEventListener('input', debounce(onCountryInput, DEBOUNCE_DELAY))
+countryInput.addEventListener('input', debounce(onCountryInput, DEBOUNCE_DELAY));
 function onCountryInput() {
     const nameCountry = countryInput.value.trim()
     if (nameCountry === '') {
