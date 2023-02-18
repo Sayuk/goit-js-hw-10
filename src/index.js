@@ -13,13 +13,13 @@ const countryInfo = document.querySelector('.country-info');
 
 countryInput.addEventListener('input', debounce(onCountryInput, DEBOUNCE_DELAY));
 function onCountryInput() {
-  const nameCountry = countryInput.value.trim()
-  if (nameCountry === '') {
+  const name = countryInput.value.trim()
+  if (name === '') {
     countryList.innerHTML = '';
     countryInfo.innerHTML = '';
     return;
   }
-  fetchCountries(nameCountry)
+  fetchCountries(name)
     .then(countries => {
       countryList.innerHTML = '';
       countryInfo.innerHTML = '';
