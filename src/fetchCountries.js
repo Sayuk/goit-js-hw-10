@@ -1,4 +1,4 @@
-const BASE_URL = 'https://restcountries.com/'
+const BASE_URL = 'https://restcountries.com/?name.official&capital&population&flags.svg&languages'
 
 export function fetchCountries(name) {
   
