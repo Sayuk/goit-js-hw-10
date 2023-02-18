@@ -29,15 +29,16 @@ if (countries.length > 10) {
     countryInfo.innerHTML = '';
   return;
      } 
-
-    })
-  
-  
-  .catch(error => {
+else if (error => {
     Notify.failure('Oops, there is no country with that name');
     countryList.innerHTML = "";
     countryInfo.innerHTML = "";
     return error;
+      
+    })
+  
+  
+  
 })
     //   countryList.innerHTML = '';
     //   countryInfo.innerHTML = '';
