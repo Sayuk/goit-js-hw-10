@@ -45,12 +45,7 @@ function onCountryInput() {
       
   // })
   // .catch(alertWrongName)
- .catch(error => {
-        Notify.failure('Oops, there is no country with that name');
-        countryList.innerHTML = '';
-        countryInfo.innerHTML = '';
-        return error;
-      })
+ 
 }
 
   function renderCountryList(countries) {
@@ -80,6 +75,13 @@ function onCountryInput() {
       })
       .join('')
     return markup
+
+    .catch(error => {
+        Notify.failure('Oops, there is no country with that name');
+        countryList.innerHTML = '';
+        countryInfo.innerHTML = '';
+        return error;
+      })
   }
 
   // function alertWrongName() {
