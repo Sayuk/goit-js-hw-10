@@ -23,18 +23,24 @@ function onCountryInput() {
 
  fetchCountries(nameCountry)
     .then(countries => {
-      countryList.innerHTML = ''
-      countryInfo.innerHTML = ''
+      countryList.innerHTML = '';
+      countryInfo.innerHTML = '';
       if (countries.length === 1) {
         countryList.insertAdjacentHTML('beforeend', renderCountryList(countries))
         countryInfo.insertAdjacentHTML('beforeend', renderCountryInfo(countries))
       } else if (countries.length >= 10) {
         alertTooManyMatches()
+          Notify.info('Too many matches found. Please enter a more specific name.')
+        
       } else {
-        countryList.insertAdjacentHTML('beforeend', renderCountryList(countries))
+        alertWrongName()
+          Notify.failure('Oops, there is no country with that name')
+        
+        // countryList.insertAdjacentHTML('beforeend', renderCountryList(countries))
       }
+      
     })
-    .catch(alertWrongName)
+    // .catch(alertWrongName)
 }
 
 function renderCountryList(countries) {
@@ -66,10 +72,10 @@ function renderCountryInfo(countries) {
   return markup
 }
 
-function alertWrongName() {
-  Notify.failure('Oops, there is no country with that name')
-}
+// function alertWrongName() {
+//   Notify.failure('Oops, there is no country with that name')
+// }
 
-function alertTooManyMatches() {
-  Notify.info('Too many matches found. Please enter a more specific name.')
-}
+// function alertTooManyMatches() {
+//   Notify.info('Too many matches found. Please enter a more specific name.')
+// }
