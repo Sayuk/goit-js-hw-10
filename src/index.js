@@ -13,33 +13,29 @@ const countryInfo = document.querySelector('.country-info');
 
 countryInput.addEventListener('input', debounce(onCountryInput, DEBOUNCE_DELAY));
 function onCountryInput() {
-    const nameCountry = countryInput.value.trim()
-    if (nameCountry === '') {
-        countryList.innerHTML = '';
-        countryInfo.innerHTML = '';
-        return;
-    }
+  const nameCountry = countryInput.value.trim()
+  if (nameCountry === '') {
+    countryList.innerHTML = '';
+    countryInfo.innerHTML = '';
+    return;
+  }
     
 
   fetchCountries(nameCountry)
-    .then(countries => { 
-if (countries.length > 10) {
-  Notify.info('Too many matches found. Please enter a more specific name.')
-    countryList.innerHTML = '';
-    countryInfo.innerHTML = '';
-  return;
-     } 
-else if (error => {
-    Notify.failure('Oops, there is no country with that name');
-    countryList.innerHTML = "";
-    countryInfo.innerHTML = "";
-    return error;
-      
-    })
-  
-  
-  
-})
+    .then(countries => {
+      if (countries.length > 10) {
+        Notify.info('Too many matches found. Please enter a more specific name.')
+        countryList.innerHTML = '';
+        countryInfo.innerHTML = '';
+        return;
+      }
+      else if (error => {
+        Notify.failure('Oops, there is no country with that name');
+        countryList.innerHTML = '';
+        countryInfo.innerHTML = '';
+        return error;
+      })})
+}
     //   countryList.innerHTML = '';
     //   countryInfo.innerHTML = '';
     //   if (countries.length === 1) {
@@ -53,7 +49,7 @@ else if (error => {
       
     // })
     // .catch(alertWrongName)
- }
+ 
 
 function renderCountryList(countries) {
   const markup = countries
