@@ -1,4 +1,4 @@
-const BASE_URL = 'https://restcountries.com/v3.1/?name.official&capital&population&flags.svg&languages'
+const BASE_URL = 'https://restcountries.com/v3.1/'
 
 export function fetchCountries(name) {
   
@@ -15,3 +15,4 @@ export function fetchCountries(name) {
 
 }
 
+// ?name.official&capital&population&flags.svg&languages
