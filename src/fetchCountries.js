@@ -1,4 +1,4 @@
-const BASE_URL = 'https://restcountries.com/v3.1/{name}?name.official&capital&population&flags.svg&languages'
+const BASE_URL = 'https://restcountries.com/v3.1/?name.official&capital&population&flags.svg&languages'
 
 export function fetchCountries(name) {
   
@@ -7,8 +7,8 @@ export function fetchCountries(name) {
             
 
 
-                if (!resp === 202) {
-                    throw new Error(resp.status);
+                if (!resp.ok) {
+                    throw new Error(resp.statusText);
                 }
                 return resp.json();
             });
