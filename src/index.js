@@ -21,32 +21,21 @@ function onCountryInput() {
   }
   fetchCountries(nameCountry)
     .then(countries => {
-      if (countries.length > 10) {
-        Notify.info('Too many matches found. Please enter a more specific name.')
-        countryList.innerHTML = '';
-        countryInfo.innerHTML = '';
-        return;
+      countryList.innerHTML = '';
+      countryInfo.innerHTML = '';
+      if (countries.length === 1) {
+        countryList.insertAdjacentHTML('beforeend', renderCountryList(countries))
+        countryInfo.insertAdjacentHTML('beforeend', renderCountryInfo(countries))
+      } else if (countries.length >= 10) {
+        alertTooManyMatches()
+      } else {
+        countryList.insertAdjacentHTML('beforeend', renderCountryList(countries))
       }
-    
       
     })
-    
-
-  //   countryList.innerHTML = '';
-  //   countryInfo.innerHTML = '';
-  //   if (countries.length === 1) {
-  //     countryList.insertAdjacentHTML('beforeend', renderCountryList(countries))
-  //     countryInfo.insertAdjacentHTML('beforeend', renderCountryInfo(countries))
-  //   } else if (countries.length >= 10) {
-  //     alertTooManyMatches()
-  //   } else {
-  //     countryList.insertAdjacentHTML('beforeend', renderCountryList(countries))
-  //   }
-      
-  // })
-  // .catch(alertWrongName)
- 
+    .catch(alertWrongName)
 }
+
 
   function renderCountryList(countries) {
     const markup = countries
@@ -76,18 +65,13 @@ function onCountryInput() {
       .join('')
     return markup
 
-    .catch(error => {
-        Notify.failure('Oops, there is no country with that name');
-        countryList.innerHTML = '';
-        countryInfo.innerHTML = '';
-        return error;
-      })
+    
   }
 
-  // function alertWrongName() {
-  //   Notify.failure('Oops, there is no country with that name')
-  // }
+  function alertWrongName() {
+    Notify.failure('Oops, there is no country with that name')
+  }
 
-  // function alertTooManyMatches() {
-  //   Notify.info('Too many matches found. Please enter a more specific name.')
-  // 
+function alertTooManyMatches() {
+  Notify.info('Too many matches found. Please enter a more specific name.')
+}
