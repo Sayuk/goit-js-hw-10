@@ -7,7 +7,7 @@ export function fetchCountries(name) {
             
 
 
-                if (!resp.ok) {
+                if (!resp === 202) {
                     throw new Error(resp.status);
                 }
                 return resp.json();
