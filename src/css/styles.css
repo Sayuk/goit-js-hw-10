@@ -18,10 +18,22 @@ body {
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
-  margin-left : 20px;
+  margin-left : 40px;
+  margin-top: 50px;
   background-color:grey;
 }
 ul {
   list-style-type: none;
-    margin-left: 20px;
+    
 }
+.country-list__item{
+  align-items: center;
+    display: flex;
+}
+.country-list__flag{
+      margin-right: 20px;
+}
+.country-list__name{
+  margin: 2px;
+}
+ 
