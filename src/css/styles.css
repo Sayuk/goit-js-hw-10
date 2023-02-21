@@ -18,5 +18,10 @@ body {
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+  margin-left : 20px;
   background-color:grey;
+}
+ul {
+  list-style-type: none;
+    margin-left: 20px;
 }
