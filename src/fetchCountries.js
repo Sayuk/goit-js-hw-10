@@ -1,5 +1,5 @@
-const BASE_URL = 'https://restcountries.com/?name.official&capital&population&flags.svg&languages'
-const fields ='fields=name,capital,population,flags,languages'
+const BASE_URL = 'https://restcountries.com/'
+const fields ='name.official,capital,population,flags.svg,languages'
 
 export function fetchCountries(name) {
   
